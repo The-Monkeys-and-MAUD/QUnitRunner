@@ -1,19 +1,32 @@
+var onOff = true;
+var min = '';
+var max = 'Rouge';
+var current = min;
+
 chrome.browserAction.onClicked.addListener(function(tab) {
-	alert("Clicked!");
-  	chrome.tabs.executeScript(null, {file: "qunit-runner.js"});
-
-  	var min = '';
-	var max = 'RED';
-	var current = min;
-
-	function updateIcon() {
-		chrome.browserAction.setIcon({path:"icon" + current + ".png"});
-		current++;
-
-		if (current > max)
-			current = min;
+	if(onOff)
+	{
+		onOff = false;
+		changeIcon(onOff);
+		runTest();	
+	}else{
+		onOff = true;
+		changeIcon(onOff);
 	}
-
-	chrome.browserAction.onClicked.addListener(updateIcon);
-	updateIcon();
 });
+
+function changeIcon(value){
+	if(value){
+		current	= min;
+	}else{
+		current = max;
+	}
+	chrome.browserAction.setIcon({path:"icon" + current + ".png"});
+}
+
+function runTest() {
+	chrome.tabs.executeScript(null,{code:"document.body.style.backgroundColor='red'"});
+	chrome.tabs.executeScript(null, {file: "qunit-runner.js"});
+}
+
+chrome.browserAction.onClicked.addListener(updateIcon);
