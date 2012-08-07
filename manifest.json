@@ -2,15 +2,16 @@
 	"name": "QUnit",
 	"version": "1.0",
 	"description": "Includes QUnit and runs any tests in the page",
+	 "manifest_version": 2,
 	"permissions": [
-		"tabs", "http://*/*", "https://*/*"
+		"tabs", "history", "http://*/*", "https://*/*"
 	],
 	"background": {
     	"scripts": ["background.js"]
 
   	},
 	"browser_action": {
-		"default_icon": "icon.png"
+		"default_icon": "iconOff.png"
 	},
 	"icons": {
 		"16": "icon16.png",
@@ -21,7 +22,7 @@
 		{
 		  "matches": ["*://*/*"],
 		  "css": ["qunit.css"],
-		  "js": ["jquery-1.7.2.min.js","qunit.js"]
+		  "js": ["jquery-1.7.2.min.js","qunit-setup.js","qunit.js","qunit-hider.js"]
 		}
 	]
 }
