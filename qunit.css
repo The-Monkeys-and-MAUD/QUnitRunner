@@ -20,9 +20,13 @@
 
 /** Resets */
 
-#qunit { position: absolute;
-bottom: 0px;
-z-index: 999999; }
+#qunit {
+	position: absolute;
+	bottom: 0px;
+	z-index: 999999;
+	visibility: visible;
+	height: auto;
+}
 
 #qunit-tests, #qunit-tests ol, #qunit-header, #qunit-banner, #qunit-userAgent, #qunit-testresult {
 	margin: 0;

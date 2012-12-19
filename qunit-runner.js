@@ -1,7 +1,8 @@
 
-//alert("quinit-runner.js");
+// alert("quinit-runner.js");
 
 $('#qunit').css("visibility", "visible");
+$('#qunit').css("height", "auto");
 
 // This adds support for the extension that ui-tester.js:
 // http://dsheiko.com/weblog/functional-testing-with-qunit/
